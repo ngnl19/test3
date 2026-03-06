@@ -30,7 +30,7 @@ html {
   --gradient-mid: #f97316;
   --gradient-end: #ff6a00;
 
-  --divider-url: url("/img/divider.png");
+  --divider-url: url("/img/divider-light.png");
   --hero-img: url("/img/dark-mode-hero.png");
   --preloader-img: url("/img/dark-mode-preloader.png");
 }
@@ -47,6 +47,10 @@ body {
   background: var(--bg);
   color: var(--text);
   transition: 0.3s ease;
+}
+
+section {
+  margin-top: 150px;
 }
 
 a {
@@ -251,26 +255,27 @@ a {
 
 .hero-inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: stretch; /* important */
   gap: clamp(20px, 4vw, 60px);
 }
 
 .hero-left {
+  margin-right: 75px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .hero-right {
-  width: 330px;
-  max-width: 600px;
-  height: 12vh;
-  min-height: 530px;
+  width: 164%;
+  height: 100%;
+  min-height: 100%;
+  padding-right: 40px;
   background-image: var(--hero-img);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center right;
+  background-position: right -40px center;
 }
 
 @media (max-width: 1024px) {
