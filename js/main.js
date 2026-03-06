@@ -200,3 +200,27 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 observer.observe(statsSection);
+
+/* ===============================
+   SERVICES AUTO SLIDER
+================================= */
+
+const servicesTrack = document.querySelector(".services-track");
+const servicesSlides = document.querySelectorAll(".services-slide");
+
+if (servicesTrack && servicesSlides.length > 0) {
+  let servicesIndex = 0;
+
+  function nextServicesSlide() {
+    servicesIndex++;
+
+    if (servicesIndex >= servicesSlides.length) {
+      servicesIndex = 0;
+    }
+
+    servicesTrack.style.transform = `translateX(-${servicesIndex * 100}%)`;
+  }
+
+  // Auto scroll every 5 seconds (match impact slider timing)
+  setInterval(nextServicesSlide, 5000);
+}
