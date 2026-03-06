@@ -50,8 +50,7 @@ body {
 }
 
 section {
-  margin-top: 50px;
-  margin-bottom: 250px;
+  margin-bottom: 150px;
 }
 
 a {
@@ -143,7 +142,7 @@ a {
 .nav-list a:hover {
   font-family: "Lobster", "sans-serif";
   color: var(--primary);
-  transform: translateY(-3px) scale(1.5) rotate(3deg);
+  transform: translateY(-3px) scale(1.5);
   z-index: 5;
 }
 
@@ -874,13 +873,10 @@ a {
   position: relative;
   width: 100%;
   min-height: 500px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   text-align: center;
-
   background-image: url("/img/about-img.png");
   background-size: cover;
   background-position: center;
@@ -891,19 +887,39 @@ a {
 .services-overlay {
   position: absolute;
   inset: 0;
-
-  /* Primary color overlay with transparency */
   background: rgba(249, 116, 22, 0.39);
-
   z-index: 1;
 }
 
-/* Content */
+/* Content wrapper */
 .services-content {
   position: relative;
   z-index: 2;
-  max-width: 700px;
+  max-width: 900px;
+  width: 100%;
   color: white;
+}
+
+/* Slider container */
+.services-slider {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Track - holds all slides */
+.services-track {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+/* Individual slide */
+.services-slide {
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
 }
 
 /* Header */
@@ -911,7 +927,8 @@ a {
   font-family: var(--font-main);
   font-size: clamp(32px, 5vw, 60px);
   font-weight: 300;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  line-height: 1.2;
 }
 
 /* Button */
@@ -919,13 +936,10 @@ a {
   display: inline-block;
   padding: 14px 36px;
   border-radius: 999px;
-
   background: #f97316;
   color: white;
-
   font-weight: 700;
   font-size: 14px;
-
   transition: 0.3s ease;
 }
 
@@ -1631,5 +1645,231 @@ a {
   .talk-modal-content {
     margin: 40px auto;
     padding: 25px;
+  }
+}
+
+/* ===================================
+   INTERNSHIP SECTION - NEW STACK VERSION
+=================================== */
+
+.internship-cta-new {
+  padding: 100px 0;
+  position: relative;
+  background: var(--bg);
+}
+
+.internship-cta-new .internship-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.internship-cta-new h2 {
+  font-size: clamp(40px, 5vw, 70px);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 25px;
+  font-family: var(--font-main);
+  color: var(--text);
+}
+
+.internship-cta-new .text-secondary {
+  font-family: var(--font-text);
+  font-size: 16px;
+  line-height: 1.7;
+  max-width: 500px;
+  margin-bottom: 35px;
+  opacity: 0.8;
+  color: var(--text);
+}
+
+/* Button styling matching v3.2 */
+.btn-apply-big {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 40px;
+  background: var(--primary);
+  color: white;
+  border-radius: 0 20px 0 20px;
+  font-family: var(--font-main);
+  text-decoration: none;
+  transition: 0.3s;
+  font-weight: 600;
+}
+
+.btn-apply-big:hover {
+  background: var(--text);
+  color: white;
+  border-radius: 20px 0 20px 0;
+}
+
+/* Stack Container */
+.stack-container {
+  position: relative;
+  height: 400px;
+  width: 100%;
+}
+
+.stack-card {
+  position: absolute;
+  width: 300px;
+  height: 380px;
+  background: var(--text); /* Uses your CSS variable */
+  border-radius: 15px;
+  transition: all 0.5s cubic-bezier(0.2, 1, 0.2, 1);
+  color: white;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Initial Stack positions */
+.card-1 {
+  z-index: 3;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.card-2 {
+  z-index: 2;
+  top: 20px;
+  left: 54%;
+  transform: translateX(-50%) rotate(5deg);
+  background: var(--primary);
+}
+.card-3 {
+  z-index: 1;
+  top: 40px;
+  left: 58%;
+  transform: translateX(-50%) rotate(10deg);
+  background: #ea3b60;
+}
+
+/* Hover spread effect */
+.stack-container:hover .card-1 {
+  transform: translateX(-110%) rotate(-10deg);
+}
+.stack-container:hover .card-2 {
+  transform: translateX(-50%);
+}
+.stack-container:hover .card-3 {
+  transform: translateX(10%) rotate(10deg);
+}
+
+.card-content-wrapper {
+  padding: 30px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.8)
+  );
+}
+
+.card-bg-layer {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  filter: grayscale(100%);
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.card-head {
+  font-family: var(--font-main);
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.card-body-text {
+  font-family: var(--font-text);
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.card-num {
+  font-size: 4rem;
+  font-weight: 700;
+  opacity: 0.2;
+  position: absolute;
+  bottom: -10px;
+  right: 20px;
+}
+
+/* Utility classes */
+.d-flex {
+  display: flex;
+}
+.justify-content-between {
+  justify-content: space-between;
+}
+.align-items-end {
+  align-items: flex-end;
+}
+.mt-auto {
+  margin-top: auto;
+}
+.text-center {
+  text-align: center;
+}
+.mt-5 {
+  margin-top: 3rem;
+}
+.d-none {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .internship-cta-new .internship-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 60px;
+  }
+
+  .internship-cta-new .text-secondary {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .stack-container {
+    display: none;
+  }
+
+  /* Fallback for mobile - show simple version */
+  .internship-cta-new .col-lg-5::before {
+    content: "3 internship programs available. Apply now to learn more.";
+    display: block;
+    padding: 30px;
+    background: var(--primary);
+    color: white;
+    border-radius: 15px;
+    font-family: var(--font-text);
+  }
+}
+
+@media (min-width: 992px) {
+  .d-lg-block {
+    display: block !important;
+  }
+  .d-lg-none {
+    display: none !important;
+  }
+  .offset-lg-1 {
+    margin-left: 8.333333%;
+  }
+  .mb-lg-0 {
+    margin-bottom: 0 !important;
   }
 }
