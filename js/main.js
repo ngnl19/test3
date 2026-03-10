@@ -224,3 +224,14 @@ if (servicesTrack && servicesSlides.length > 0) {
   // Auto scroll every 5 seconds (match impact slider timing)
   setInterval(nextServicesSlide, 5000);
 }
+
+const reveals = document.querySelectorAll(".reveal")
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("active")
+    }
+  });
+});
+
+reveals.forEach(el => revealObserver.observe(el));
